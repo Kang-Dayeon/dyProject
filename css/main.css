@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap");
+@-webkit-keyframes backgroundColor {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+@keyframes backgroundColor {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+ul, li, ol {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.section {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+}
+.section:first-child {
+  background: rgb(131, 58, 180);
+  background: linear-gradient(142deg, rgb(131, 58, 180) 0%, rgb(253, 29, 29) 18%, rgb(252, 176, 69) 30%, rgb(139, 200, 245) 42%, rgb(158, 171, 251) 54%, rgb(99, 112, 191) 65%, rgb(159, 99, 191) 86%, rgb(214, 27, 84) 99%);
+  background-size: 400% 400%;
+  position: relative;
+  color: #fff;
+  -webkit-animation: backgroundColor 20s ease-in-out infinite;
+          animation: backgroundColor 20s ease-in-out infinite;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.name-input {
+  display: none;
+  padding: 7px 5px;
+  min-width: 300px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  background-color: transparent;
+  font-size: 22px;
+  color: #fff;
+  text-align: center;
+}
+.name-input::-moz-placeholder {
+  color: #fff;
+}
+.name-input:-ms-input-placeholder {
+  color: #fff;
+}
+.name-input::placeholder {
+  color: #fff;
+}
+.name-input:focus {
+  outline: none;
+}
+.name-input.active {
+  display: block;
+}
+
+.message {
+  display: none;
+}
+.message.active {
+  display: block;
+}
+.message h1 {
+  font-size: 30px;
+  line-height: 1.5;
+  font-weight: 400;
+}/*# sourceMappingURL=main.css.map */
