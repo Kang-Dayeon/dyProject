@@ -22,6 +22,28 @@
     transform: translateY(0);
   }
 }
+@keyframes scrolling {
+  0%{
+    transform: translateY(0);
+    opacity: 0;
+  }
+  25%{
+    transform: translateY(10px);
+    opacity: 0.5;
+  }
+  50%{
+    ransform: translateY(18px);
+    opacity: 1;
+  }
+  75%{
+    transform: translateY(10px);
+    opacity: 0.5;
+  }
+  100%{
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
 
 *{
   margin: 0;
@@ -62,6 +84,9 @@ body{
     background: url(./../img/image01.jpg) no-repeat 0 0;
     background-size: cover;
     background-attachment: fixed;
+  }
+  &:nth-child(3){
+    transition: background-color 0.5s;
   }
 }
 .bg1{
@@ -110,9 +135,17 @@ body{
       padding-top: 150px;
       font-size: 50px;
       color: #fff;
-    }
-    .big{
-      font-size: 100px;
+      text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
     }
   }
 }
+.scroll{
+  position: absolute;
+  bottom: 70px;
+  animation: scrolling 2.5s linear infinite;
+  p{
+    font-size: 14px;
+    margin-top: 3px;
+  }
+}
+
