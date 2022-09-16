@@ -256,7 +256,10 @@ body::-webkit-scrollbar {
 }
 
 .text-box {
-  padding-top: 300px;
+  position: absolute;
+  top: 30%;
+  left: 0;
+  width: 100%;
   -webkit-animation: upDown 2s ease-in-out infinite;
           animation: upDown 2s ease-in-out infinite;
 }

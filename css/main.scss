@@ -188,7 +188,10 @@ body{
 }
 .text{
   &-box{
-    padding-top: 300px;
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width: 100%;
     animation: upDown 2s ease-in-out infinite;
     p{
       padding-top: 70px;
