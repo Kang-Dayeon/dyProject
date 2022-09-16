@@ -1,26 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap");
-@-webkit-keyframes backgroundColor {
-  0% {
-    background-position: 0 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0 50%;
-  }
-}
-@keyframes backgroundColor {
-  0% {
-    background-position: 0 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0 50%;
-  }
-}
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap");
 @-webkit-keyframes upDown {
   0% {
     transform: translateY(0);
@@ -87,6 +66,28 @@
     opacity: 0;
   }
 }
+@-webkit-keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -111,6 +112,43 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+.top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 100;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+}
+.top::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 150;
+  width: 80px;
+  height: 80px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 80px;
+  color: #fff;
+  content: "TOP";
+}
+.top::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 110;
+  width: 80px;
+  height: 80px;
+  background: url(./../img/icon_top.png) no-repeat 0 0;
+  background-size: cover;
+  content: "";
+  -webkit-animation: rotate 5s linear infinite;
+          animation: rotate 5s linear infinite;
+}
+
 .section {
   width: 100%;
   height: 100vh;
@@ -126,14 +164,24 @@ body::-webkit-scrollbar {
           animation: backgroundColor 20s ease-in-out infinite;
 }
 .section:nth-child(2) {
-  height: 700px;
+  position: relative;
   background-color: rgb(139, 200, 245);
   background: url(./../img/image01.jpg) no-repeat 0 0;
   background-size: cover;
   background-attachment: fixed;
 }
+.section:nth-child(2)::after {
+  position: absolute;
+  bottom: -100px;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: url(./../img/wave-haikei.png) no-repeat 0 0;
+  background-size: cover;
+  content: "";
+}
 .section:nth-child(3) {
-  transition: background-color 0.5s;
+  position: relative;
 }
 
 .bg1 {
@@ -186,14 +234,17 @@ body::-webkit-scrollbar {
 }
 
 .text-box {
+  padding-top: 300px;
   -webkit-animation: upDown 2s ease-in-out infinite;
           animation: upDown 2s ease-in-out infinite;
 }
 .text-box p {
-  padding-top: 150px;
-  font-size: 50px;
+  padding-top: 70px;
+  font-size: 35px;
   color: #fff;
-  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+}
+.text-box p:first-child {
+  padding-top: 0;
 }
 
 .scroll {
@@ -205,4 +256,20 @@ body::-webkit-scrollbar {
 .scroll p {
   font-size: 14px;
   margin-top: 3px;
+}
+
+#sw-js-blob-svg {
+  width: 100%;
+  height: 100vh;
+  background-color: #979cea;
+}
+
+.svg-text {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  font-size: 22px;
+  line-height: 1.5;
+  font-family: "Libre Baskerville", serif;
+  color: #fff;
 }/*# sourceMappingURL=main.css.map */

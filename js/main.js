@@ -14,14 +14,7 @@ $(document).ready(function () {
       messageBox.addClass('active');
     }
   });
-
-  $(window).scroll(function () {
-    let scrollTop = $(document).scrollTop();
-    let start = $('#section-bg').offset().top;
-    if (scrollTop == start) {
-      $('#section-bg').css('background-color', '#00acc1')
-    } else if (scrollTop < start) {
-      $('#section-bg').css('background-color', '#fff')
-    }
-  });
+  $('.top').click(function () {
+    $('html,body').animate({ scrollTop: 0 }, 500);
+  })
 });
