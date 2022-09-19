@@ -1,42 +1,54 @@
-$(document).ready(function () {
-  // aos적용
-  AOS.init();
-  //input event 
-  $('.name-input').keydown(function (e) {
-    const input = $('.name-input');
-    const messageBox = $('.message');
-    const userName = $('.user-name');
+//input event 
+function inputValue(input, message, user) {
+  input.keydown(e => {
     if (e.keyCode == 13) {
       let inputValue = input.val();
-      userName.text(inputValue);
+      user.text(inputValue);
       input.removeClass('active');
-      messageBox.addClass('active');
+      message.addClass('active');
     }
   });
-  // top button
-  $('.top').click(function () {
+};
+// top scroll
+function topScolling(topBtn) {
+  topBtn.click(function () {
     $('html,body').animate({ scrollTop: 0 }, 500);
   });
-  // mouse event
-  $('#mouseStart').mousemove(function (e) {
+};
+// mouse event
+function mouseMoving(el) {
+  el.mousemove((e) => {
     $('.cursor').css('top', e.clientY);
     $('.cursor').css('left', e.clientX);
   });
-  // TweenMax
-  $('#mouseStart').click(function (e) {
+};
+// TweenMax
+function circleAnimation(el, circle) {
+  el.click(function (e) {
     let tl = new TimelineLite;
-    tl.to('.circle-click', 1.5, {
+    tl.to(circle, 1.5, {
       rotation: 180,
       x: e.clientX,
       y: e.clientY,
       width: 50,
       height: 50,
       ease: Back.easeOut.config(1)
-    }).to('.circle-click', 2, {
+    }).to(circle, 2, {
       rotation: 360,
       width: 400,
       height: 400,
       ease: Back.easeOut.config(1.7),
     });
   });
+};
+
+
+$(document).ready(function () {
+  // aos적용
+  AOS.init();
+  // event function
+  inputValue($('.name-input'), $('.message'), $('.user-name'));
+  topScolling($('.top'));
+  mouseMoving($('#mouseStart'));
+  circleAnimation($('#mouseStart'), '.circle-click')
 });
