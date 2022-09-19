@@ -172,6 +172,7 @@ body::-webkit-scrollbar {
 }
 
 .section {
+  position: relative;
   width: 100%;
   height: 100vh;
   text-align: center;
@@ -186,24 +187,33 @@ body::-webkit-scrollbar {
           animation: backgroundColor 20s ease-in-out infinite;
 }
 .section:nth-child(2) {
-  position: relative;
-  background-color: rgb(139, 200, 245);
+  background-color: #b5e0e7;
   background: url(./../img/image01.jpg) no-repeat 0 0;
   background-size: cover;
   background-attachment: fixed;
 }
 .section:nth-child(2)::after {
   position: absolute;
-  bottom: -100px;
+  bottom: -3px;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 50vh;
   background: url(./../img/wave-haikei.png) no-repeat 0 0;
   background-size: cover;
   content: "";
 }
-.section:nth-child(3) {
-  position: relative;
+.section:nth-child(4) {
+  background-color: rgb(139, 200, 245);
+}
+.section:nth-child(4)::after {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 50vh;
+  background: url(./../img/wave-haikei2.png) no-repeat 0 0;
+  background-size: cover;
+  content: "";
 }
 
 .bg1 {
@@ -297,4 +307,31 @@ body::-webkit-scrollbar {
   line-height: 1.5;
   font-family: "Libre Baskerville", serif;
   color: #fff;
+}
+
+.cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.circle-click {
+  padding: 20px;
+  width: 0;
+  height: 0;
+  background: rgb(252, 240, 255);
+  background: linear-gradient(142deg, rgb(252, 240, 255) 3%, rgb(195, 193, 255) 50%, rgb(177, 242, 255) 100%);
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 500;
+  font-size: 28px;
+  overflow: hidden;
 }/*# sourceMappingURL=main.css.map */
