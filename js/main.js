@@ -1,12 +1,11 @@
 $(document).ready(function () {
   // aos적용
   AOS.init();
-
-  const input = $('.name-input');
-  const messageBox = $('.message');
-  const userName = $('.user-name');
-
+  //input event 
   $('.name-input').keydown(function (e) {
+    const input = $('.name-input');
+    const messageBox = $('.message');
+    const userName = $('.user-name');
     if (e.keyCode == 13) {
       let inputValue = input.val();
       userName.text(inputValue);
@@ -14,18 +13,18 @@ $(document).ready(function () {
       messageBox.addClass('active');
     }
   });
+  // top button
   $('.top').click(function () {
     $('html,body').animate({ scrollTop: 0 }, 500);
   });
-
+  // mouse event
   $('#mouseStart').mousemove(function (e) {
     $('.cursor').css('top', e.clientY);
     $('.cursor').css('left', e.clientX);
   });
-
-  var tl = new TimelineLite;
-
+  // TweenMax
   $('#mouseStart').click(function (e) {
+    let tl = new TimelineLite;
     tl.to('.circle-click', 1.5, {
       rotation: 180,
       x: e.clientX,
