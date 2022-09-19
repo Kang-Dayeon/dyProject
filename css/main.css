@@ -194,10 +194,10 @@ body::-webkit-scrollbar {
 }
 .section:nth-child(2)::after {
   position: absolute;
-  bottom: -3px;
+  bottom: -5px;
   left: 0;
   width: 100%;
-  height: 50vh;
+  height: 100%;
   background: url(./../img/wave-haikei.png) no-repeat 0 0;
   background-size: cover;
   content: "";
@@ -210,7 +210,7 @@ body::-webkit-scrollbar {
   top: -100px;
   left: 0;
   width: 100%;
-  height: 50vh;
+  height: 100%;
   background: url(./../img/wave-haikei2.png) no-repeat 0 0;
   background-size: cover;
   content: "";
