@@ -11,9 +11,9 @@ HTML,CSS,SCSS,Javascript
 [Library]
 <br/>
 AOS,jQuery,TweenMax
-<br/>
-[Section의 기능]
-<br/>
+<br/><br/>
+[Section 기능]
+<br/><br/>
 📍 Section01<br/>
 ✦ keyframes를 사용하여 background color가 서서히 변하는 애니메이션<br/>
 ✦ Javascript를 활용하여 input에 이름을 입력하고 엔터를 치면 user에게 인사하는 text가 보이는 기능<br/>
