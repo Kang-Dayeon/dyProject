@@ -23,24 +23,21 @@ $(document).ready(function () {
     $('.cursor').css('left', e.clientX);
   });
 
+  var tl = new TimelineLite;
+
   $('#mouseStart').click(function (e) {
-    gsap.fromTo('.circle-click', 3, {
-      rotation: 0,
+    tl.to('.circle-click', 1.5, {
+      rotation: 180,
       x: e.clientX,
       y: e.clientY,
-      width: 10,
-      height: 10,
-      borderRadius: 0,
-      ease: Back.easeOut.config(1),
-    },
-      {
-        rotation: 360,
-        x: e.clientX,
-        y: e.clientY,
-        width: 400,
-        height: 400,
-        ease: Back.easeOut.config(1),
-        borderRadius: 50,
-      });
+      width: 50,
+      height: 50,
+      ease: Back.easeOut.config(1)
+    }).to('.circle-click', 2, {
+      rotation: 360,
+      width: 400,
+      height: 400,
+      ease: Back.easeOut.config(1.7),
+    });
   });
 });
