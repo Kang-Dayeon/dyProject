@@ -11,20 +11,20 @@ function inputValue(input, message, user) {
 };
 // top scroll
 function topScolling(topBtn) {
-  topBtn.click(function () {
+  topBtn.click(() => {
     $('html,body').animate({ scrollTop: 0 }, 500);
   });
 };
 // mouse event
 function mouseMoving(el) {
-  el.mousemove((e) => {
+  el.mousemove(e => {
     $('.cursor').css('top', e.clientY);
     $('.cursor').css('left', e.clientX);
   });
 };
 // TweenMax
 function circleAnimation(el, circle) {
-  el.click(function (e) {
+  el.click(e => {
     let tl = new TimelineLite;
     tl.to(circle, 1.5, {
       rotation: 180,
