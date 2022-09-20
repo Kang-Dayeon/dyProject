@@ -20,7 +20,7 @@ function topScolling(topBtn) {
 // mouse event
 function mouseMoving(el) {
   el.mousemove(e => {
-    $('.cursor').css('top', e.clientY);
+    $('.cursor').css('top', e.clientY + 100);
     $('.cursor').css('left', e.clientX);
   });
 };
@@ -31,14 +31,14 @@ function circleAnimation(el, circle) {
     tl.to(circle, 1.5, {
       rotation: 180,
       x: e.clientX,
-      y: e.clientY,
+      y: e.clientY + 100,
       width: 50,
       height: 50,
       ease: Back.easeOut.config(1)
     }).to(circle, 2, {
       rotation: 360,
-      width: 400,
-      height: 400,
+      width: 300,
+      height: 300,
       ease: Back.easeOut.config(1.7),
     });
   });
