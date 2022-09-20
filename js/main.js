@@ -1,3 +1,5 @@
+
+
 //input event 
 function inputValue(input, message, user) {
   input.keydown(e => {
@@ -52,3 +54,4 @@ $(document).ready(function () {
   mouseMoving($('#mouseStart'));
   circleAnimation($('#mouseStart'), '.circle-click')
 });
+

@@ -130,8 +130,8 @@ img {
   width: 100%;
 }
 
-body::-webkit-scrollbar {
-  display: none;
+canvas {
+  display: block;
 }
 
 .top {
@@ -215,6 +215,15 @@ body::-webkit-scrollbar {
   background: url(./../img/wave-haikei2.png) no-repeat 0 0;
   background-size: cover;
   content: "";
+}
+.section.motion p {
+  position: absolute;
+  top: 45%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 35px;
+  color: #fff;
 }
 
 .bg1 {
