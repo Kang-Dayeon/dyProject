@@ -10,7 +10,7 @@ HTML,CSS,SCSS,Javascript
 <br/>
 [Library]
 <br/>
-AOS,jQuery,TweenMax
+AOS,jQuery,TweenMax,Three.js
 <br/><br/>
 [Section 기능]
 <br/><br/>
