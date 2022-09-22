@@ -267,6 +267,7 @@ canvas{
 .circle-click{
   position: absolute;
   padding: 20px;
+  z-index: 300;
   width: 0;
   height: 0;
   background: rgb(252,240,255);

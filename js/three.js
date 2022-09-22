@@ -94,68 +94,90 @@ class WebGL {
 export default WebGL;
 // webgl 호환성 검새
 if (WebGL.isWebGLAvailable()) {
-  const motion = document.querySelector('.motion');
-
-  // 장면
-  const scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x979cea);
-
-  // 카메라
-  const camera = new THREE.PerspectiveCamera(75, motion.clientWidth / motion.clientHeight, 0.1, 1000);
-
-  // 빛
-  const pointLight = new THREE.PointLight(0xffffff, 1);
-  pointLight.position.set(0, 1, 9);
-  scene.add(pointLight);
-
-  // 랜더러
+  const canvas = document.getElementById('three-canvas');
   const renderer = new THREE.WebGLRenderer({
-    antialias: true,
+    canvas,
+    antialias: true //계단현상 없애기
+  });
+  renderer.setSize(innerWidth, innerHeight + 100);
+  renderer.setPixelRatio(devicePixelRatio > 1 ? 2 : 1);
+
+  // scene : 무대
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x7862cf);
+
+  // camera : 카메라
+  const camera = new THREE.PerspectiveCamera(
+    75, //시야각(field of view)
+    innerWidth / innerHeight, // 종횡비(aspect)
+    0.1, // near
+    1000 // fal
+  );
+
+  camera.position.set(0, 0.5, 5);
+
+  // scene(무대)에 카메라를 추가해준는것
+  scene.add(camera);
+
+  // light 조명 설정
+  const ambientLight = new THREE.AmbientLight('white', 0.5);
+  scene.add(ambientLight);
+  const light = new THREE.DirectionalLight(0xffffff, 1);
+  light.position.x = 1;
+  light.position.z = 2;
+  scene.add(light);
+
+  // Mesh
+  const geometry = new THREE.SphereGeometry(2, 64, 64);
+  const meterial = new THREE.MeshStandardMaterial({
+    color: 0x8676e3,
+    side: THREE.DoubleSide,
+    flatShading: true
   });
 
-  // 랜더러 사이즈 조절
-  renderer.setSize(motion.clientWidth, motion.clientHeight);
-  // 어떤 태그에 노출시킬것인지
-  motion.appendChild(renderer.domElement);
+  const box1 = new THREE.Mesh(geometry, meterial);
+  scene.add(box1);
 
-  // 도형을 만드는 코드
-  // geometry : 선을 그리는것
-  const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 100);
-  // material : 면을 만들어줌
-  const material = new THREE.MeshPhongMaterial({
-    color: 0x7421ab,
-    emissive: 0x4797ff,
-    depthWrite: true,
-    shininess: 77,
-  });
-  // 모형을 만들어줌
-  const cube = new THREE.Mesh(geometry, material);
-  scene.add(cube);
+  const positionArray = geometry.attributes.position.array;
+  const randomArray = [];
+  for (let i = 0; i < positionArray.length; i += 3) {
+    positionArray[i] += (Math.random() - 0.5) * 0.2;
+    positionArray[i + 1] += (Math.random() - 0.5) * 0.2;
+    positionArray[i + 2] += (Math.random() - 0.5) * 0.2;
 
-  camera.position.z = 5;
+    randomArray[i] = (Math.random() - 0.5) * 0.2;;
+    randomArray[i + 1] = (Math.random() - 0.5) * 0.2;;
+    randomArray[i + 2] = (Math.random() - 0.5) * 0.2;;
+  }
 
-  // const controls = new OrbitControls(camera, renderer.domElement);
-  // controls.minDistance = 1;
-  // controls.maxDistance = 50;
+  renderer.render(scene, camera);
 
-  function animate() {
-    requestAnimationFrame(animate);
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
-    // controls.update();
-    // 랜더 해주는 문법
+  const clock = new THREE.Clock();
+
+  // 애니메이션
+  const drew = () => {
+    const time = clock.getElapsedTime() * 3;
+    for (let i = 0; i < positionArray.length; i += 3) {
+      positionArray[i] += Math.sin(time + randomArray[i] * 100) * 0.002;
+      positionArray[i + 1] += Math.sin(time + randomArray[i] * 100) * 0.002;
+      positionArray[i + 2] += Math.sin(time + randomArray[i] * 100) * 0.002;
+    }
+    geometry.attributes.position.needsUpdate = true;
+    renderer.render(scene, camera);
+    renderer.setAnimationLoop(drew);
+  }
+
+  const setSize = () => {
+    camera.aspect = innerWidth / innerHeight;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(innerWidth, innerHeight + 100);
     renderer.render(scene, camera);
   }
-  animate();
+  // 이벤트
+  window.addEventListener('resize', setSize);
 
-  // 반응형 처리
-  function onWindowResize() {
-    camera.aspect = motion.clientWidth / motion.clientHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(motion.clientWidth, motion.clientHeight);
-  }
-
-  window.addEventListener('resize', onWindowResize);
+  drew();
 
 } else {
 
