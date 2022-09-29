@@ -1,7 +1,4 @@
 # dyProject💜<br/>
-![화면 기록 2022-09-29 오후 4 40 39 (1)](https://user-images.githubusercontent.com/94333816/192975566-c22b7087-1095-4992-a289-eeea06913985.gif)
-<br/><br/>
-----------------------------
 <br/>
 다양한 라이브러리를 활용하여 만든 페이지입니다.<br/>
 CSS,SVG,AOS,Javascript,jQuery,TweenMax,Three.js를 활용하여 동적인 페이지를만들어 사용자에게 재미있는 경험을 제공합니다.<br/><br/>
